@@ -5,8 +5,9 @@ using UnityEngine;
 public class BallAction: MonoBehaviour
 {
     public float speedMulti;
-    bool locked;
+    public bool locked;
     public GameObject target;
+    public GameObject explosion_mesh;
     int x = 0;
     Vector3 temp = new Vector3(0, 0, 0);
 
@@ -16,16 +17,23 @@ public class BallAction: MonoBehaviour
         set
         {
             locked = value;
-            GameObject explosion = Instantiate(Resources.Load("exFX") as GameObject , transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosion_mesh, transform.position, Quaternion.identity);
 
         }
     }
-
+    
+    /*[ContextMenu("Test Lock State")]
+    void Test ()
+    {
+        Locked = !Locked;
+    }
+    */
     // Start is called before the first frame update
     void Start()
     {
         speedMulti = 5.0f;
         locked = true;
+        
         
     }
 
