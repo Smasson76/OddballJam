@@ -8,7 +8,6 @@ public class BallAction: MonoBehaviour
     public bool locked;
     public GameObject target;
     public GameObject explosion_mesh;
-    int x = 0;
     Vector3 temp = new Vector3(0, 0, 0);
 
     public bool Locked
@@ -22,12 +21,12 @@ public class BallAction: MonoBehaviour
         }
     }
     
-    /*[ContextMenu("Test Lock State")]
+    [ContextMenu("Test Lock State")]
     void Test ()
     {
         Locked = !Locked;
     }
-    */
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +41,7 @@ public class BallAction: MonoBehaviour
     {
         
         
-        if(locked != true && x == 0)
+        if(locked != true)
         {
             float step = speedMulti * Time.deltaTime;
             temp = target.transform.position;
