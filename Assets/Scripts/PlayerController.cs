@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public string blahAxis = "Horizonal";
-    public string blahButton = "Fire1";
+    public GameObject PlayerOBJ;
     public KeyCode blahKey = KeyCode.Space;
 
     public Transform[] points;
@@ -25,53 +24,90 @@ public class PlayerController : MonoBehaviour
     {
         players[playerNum] = this;
         //currentPoint = points[0];
-        Debug.Log("Player " + (playerNum + 1).ToString());
         AWDpoints.SetActive(false);
     }
 
     void Update()
     {
-        frames += 1;
+        frames += 1; 
         float axis = Input.GetAxis(Movement[playerNum]);
-        if (frames > 4)
-        {
-
-            
-
-            //moving left?
-            if (axis < 0f && transform.position != points[2].transform.position && l == false)
-            {
-                l = true;
-                currentPoint++;
-                currentPoint %= points.Length;
-                transform.position = points[currentPoint].transform.position;
-                frames = 0;
-            }
-
-            //moving right?
-            else if (axis > -0f && transform.position != points[0].transform.position && r == false)
-            {
-                r = true;
-                currentPoint += points.Length - 1;
-                currentPoint %= points.Length;
-                transform.position = points[currentPoint].transform.position;
-                frames = 0;
-            }
-
-
-        }
-
+       
         //key pressed status reset if left and right arent being pressed
-        if (axis == 0)
+        if (Mathf.Abs(axis) < 1f)
         {
             r = false;
             l = false;
         }
 
-
-        if (Input.GetKey(hit[playerNum]))
+        if (playerNum == 1)
         {
-            AWDpoints.SetActive(true);
+            if (frames > 4)
+                {
+            
+                    //moving left?
+                    if (axis == -1f && transform.position != points[2].transform.position && l == false)
+                    {
+                        l = true;
+                        currentPoint++;
+                        currentPoint %= points.Length;
+                        PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                        frames = 0;
+                    }
+
+                    //moving right?
+                    if (axis == 1f && transform.position != points[0].transform.position && r == false)
+                    {
+                        r = true;
+                        currentPoint += points.Length - 1;
+                        currentPoint %= points.Length;
+                        PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                        frames = 0;
+                    }
+
+                }
+            }
+
+        else if (playerNum == 0)
+        {
+            if (frames > 4)
+            {
+                //moving left?
+                if (axis == 1f && transform.position != points[2].transform.position && l == false)
+                {
+                    l = true;
+                    currentPoint++;
+                    currentPoint %= points.Length;
+                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                    frames = 0;
+                }
+
+                //moving right?
+                if (axis == -1f && transform.position != points[0].transform.position && r == false)
+                {
+                    r = true;
+                    currentPoint += points.Length - 1;
+                    currentPoint %= points.Length;
+                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                    frames = 0;
+                }
+            }
+        }
+
+        if (playerNum == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            {
+                Debug.Log("Attaque by p1");
+                AWDpoints.SetActive(true);
+            }
+        }
+        if (playerNum == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+            {
+                Debug.Log("Attaque by p2");
+                AWDpoints.SetActive(true);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -91,5 +127,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-    
 
