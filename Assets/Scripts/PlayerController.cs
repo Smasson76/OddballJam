@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        frames += 1;
+        frames += 1; 
         float axis = Input.GetAxis(Movement[playerNum]);
         Debug.Log(axis);
         //key pressed status reset if left and right arent being pressed
