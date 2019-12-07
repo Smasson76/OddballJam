@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,20 +43,11 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ballLaunched = true;
-                if (!P1scored)
-                {
-
-                }
-
-                else
-                {
-
-                }
-                P1scored = false;
             }
             else
             {
                 Vector3 currentPlayerPos = player.transform.position;
+                //BallAction.Reset();
             }
         }
 
@@ -66,7 +57,7 @@ public class GameManager : MonoBehaviour
             ballInGoal = true;
             exitTime = Time.time;
             scoreP2++;
-            ball.transform.position = new Vector3(0, 3.8f, -0.52f);
+            //BallAction.Reset();
             ballLaunched = false;
             FixedUpdate();
         }
@@ -76,9 +67,25 @@ public class GameManager : MonoBehaviour
             exitTime = Time.time;
             scoreP1++;
             P1scored = true;
-            ball.transform.position = new Vector3(0, 3.8f, -0.52f);
+            //BallAction.Reset();
             ballLaunched = false;
             FixedUpdate();
+        }
+    }
+
+    void GameOver()
+    {
+        if (scoreP1 == winScore)
+        {
+            gameOver = true;
+            gameEndText.enabled = true;
+            gameEndText.text = "Player 1 Wins";
+        }
+        else if (scoreP2 == winScore)
+        {
+            gameOver = true;
+            gameEndText.enabled = true;
+            gameEndText.text = "Player 2 Wins";
         }
     }
 }
