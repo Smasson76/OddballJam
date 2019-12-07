@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 193816600}
   - component: {fileID: 193816599}
   - component: {fileID: 193816598}
+  - component: {fileID: 193816602}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -272,6 +273,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193816602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193816597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0805a8f5e220304e8fcbc2c80305efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 1177667030}
+  - {fileID: 911943626}
+  - {fileID: 577926841}
+  playerNum: 1
+  Movement:
+  - Horizontal
+  - Horizontal2
+  hit: 5e01000072010000
 --- !u!1 &229847720
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,9 +577,8 @@ GameObject:
   - component: {fileID: 577926841}
   - component: {fileID: 577926844}
   - component: {fileID: 577926843}
-  - component: {fileID: 577926842}
   m_Layer: 0
-  m_Name: Bound1 (2)
+  m_Name: Bound3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -577,19 +598,6 @@ Transform:
   m_Father: {fileID: 1625162329}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &577926842
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577926840}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &577926843
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -597,7 +605,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577926840}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -814,9 +822,8 @@ GameObject:
   - component: {fileID: 911943626}
   - component: {fileID: 911943629}
   - component: {fileID: 911943628}
-  - component: {fileID: 911943627}
   m_Layer: 0
-  m_Name: Bound1 (1)
+  m_Name: Bound2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,19 +843,6 @@ Transform:
   m_Father: {fileID: 1625162329}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &911943627
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911943625}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &911943628
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -856,7 +850,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911943625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1033,7 +1027,6 @@ GameObject:
   - component: {fileID: 1177667030}
   - component: {fileID: 1177667033}
   - component: {fileID: 1177667032}
-  - component: {fileID: 1177667031}
   m_Layer: 0
   m_Name: Bound1
   m_TagString: Untagged
@@ -1055,19 +1048,6 @@ Transform:
   m_Father: {fileID: 1625162329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1177667031
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177667029}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1177667032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1075,7 +1055,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177667029}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

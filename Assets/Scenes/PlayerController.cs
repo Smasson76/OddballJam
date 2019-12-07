@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
         if (Input.GetButtonDown(Movement[playerNum])) {
             currentPoint++;
             currentPoint %= points.Length;
