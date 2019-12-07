@@ -44,16 +44,10 @@ public class BallAction: MonoBehaviour
         
         if(locked != true && x == 0)
         {
-            x = 1;
             float step = speedMulti * Time.deltaTime;
             temp = target.transform.position;
             transform.position = Vector3.MoveTowards(transform.position, temp, step);
 
-        }
-        if (locked != true && x != 0)
-        {
-            float step = speedMulti * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, temp, step);
         }
 
     }
