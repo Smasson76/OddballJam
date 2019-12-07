@@ -347,13 +347,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896307363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 24.2, z: -1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1404216730
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,5 +517,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1404216730}
+    - target: {fileID: 965543971032142222, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: locked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142222, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: explosion_mesh
+      value: 
+      objectReference: {fileID: 5432030282800177865, guid: a548f758a09bf714aa44b493ca7b69de,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b070faa78f6f11d4db9bf11c5f8ae285, type: 3}

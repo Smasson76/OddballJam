@@ -21,12 +21,12 @@ public class BallAction: MonoBehaviour
         }
     }
     
-    /*[ContextMenu("Test Lock State")]
+    [ContextMenu("Test Lock State")]
     void Test ()
     {
         Locked = !Locked;
     }
-    */
+    
     // Start is called before the first frame update
     void Start()
     {
