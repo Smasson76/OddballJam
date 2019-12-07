@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject PlayerOBJ;
-    public string blahButton = "Fire1";
     public KeyCode blahKey = KeyCode.Space;
 
     public Transform[] points;
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         frames += 1; 
         float axis = Input.GetAxis(Movement[playerNum]);
-        Debug.Log(axis);
+       
         //key pressed status reset if left and right arent being pressed
         if (Mathf.Abs(axis) < 1f)
         {
@@ -94,9 +93,21 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(hit[playerNum]))
+        if (playerNum == 0)
         {
-            AWDpoints.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            {
+                Debug.Log("Attaque by p1");
+                AWDpoints.SetActive(true);
+            }
+        }
+        if (playerNum == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+            {
+                Debug.Log("Attaque by p2");
+                AWDpoints.SetActive(true);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.A))
