@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public string blahAxis = "Horizonal";
+    public GameObject PlayerOBJ;
     public string blahButton = "Fire1";
     public KeyCode blahKey = KeyCode.Space;
 
@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         players[playerNum] = this;
         //currentPoint = points[0];
-        Debug.Log("Player " + (playerNum + 1).ToString());
         AWDpoints.SetActive(false);
     }
 
@@ -33,41 +32,67 @@ public class PlayerController : MonoBehaviour
     {
         frames += 1;
         float axis = Input.GetAxis(Movement[playerNum]);
-        if (frames > 4)
-        {
-
-            
-
-            //moving left?
-            if (axis < 0f && transform.position != points[2].transform.position && l == false)
-            {
-                l = true;
-                currentPoint++;
-                currentPoint %= points.Length;
-                transform.position = points[currentPoint].transform.position;
-                frames = 0;
-            }
-
-            //moving right?
-            else if (axis > -0f && transform.position != points[0].transform.position && r == false)
-            {
-                r = true;
-                currentPoint += points.Length - 1;
-                currentPoint %= points.Length;
-                transform.position = points[currentPoint].transform.position;
-                frames = 0;
-            }
-
-
-        }
-
+        Debug.Log(axis);
         //key pressed status reset if left and right arent being pressed
-        if (axis == 0)
+        if (Mathf.Abs(axis) < 1f)
         {
             r = false;
             l = false;
         }
 
+        if (playerNum == 1)
+            {
+                if (frames > 4)
+                {
+            
+                    //moving left?
+                    if (axis == -1f && transform.position != points[2].transform.position && l == false)
+                    {
+                        l = true;
+                        currentPoint++;
+                        currentPoint %= points.Length;
+                        PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                        frames = 0;
+                    }
+
+                    //moving right?
+                    if (axis == 1f && transform.position != points[0].transform.position && r == false)
+                    {
+                        r = true;
+                        currentPoint += points.Length - 1;
+                        currentPoint %= points.Length;
+                        PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                        frames = 0;
+                    }
+
+                }
+            }
+
+        else if (playerNum == 0)
+        {
+            if (frames > 4)
+            {
+                //moving left?
+                if (axis == 1f && transform.position != points[2].transform.position && l == false)
+                {
+                    l = true;
+                    currentPoint++;
+                    currentPoint %= points.Length;
+                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                    frames = 0;
+                }
+
+                //moving right?
+                if (axis == -1f && transform.position != points[0].transform.position && r == false)
+                {
+                    r = true;
+                    currentPoint += points.Length - 1;
+                    currentPoint %= points.Length;
+                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                    frames = 0;
+                }
+            }
+        }
 
         if (Input.GetKey(hit[playerNum]))
         {
@@ -91,5 +116,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-    
 

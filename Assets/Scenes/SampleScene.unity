@@ -167,8 +167,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
@@ -246,8 +244,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
@@ -443,14 +439,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d14794d45f37043b2776b812257b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blahAxis: Vertical
+  PlayerOBJ: {fileID: 193816597}
   blahButton: Fire1
   blahKey: 32
   points:
   - {fileID: 1177667030}
   - {fileID: 911943626}
   - {fileID: 577926841}
-  AWDpoints: {fileID: 1620231763}
+  AWDpoints: {fileID: 82353630}
   playerNum: 1
   Movement:
   - Horizontal
@@ -876,8 +872,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
@@ -1048,8 +1042,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
@@ -1515,14 +1507,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d14794d45f37043b2776b812257b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blahAxis: Vertical
+  PlayerOBJ: {fileID: 1354573547}
   blahButton: Fire1
   blahKey: 32
   points:
   - {fileID: 686921549}
   - {fileID: 1533806851}
   - {fileID: 1678074304}
-  AWDpoints: {fileID: 1620231763}
+  AWDpoints: {fileID: 1833999627}
   playerNum: 0
   Movement:
   - Horizontal
@@ -1844,8 +1836,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
@@ -1923,8 +1913,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 70
