@@ -40,8 +40,8 @@ public class PlayerController : MonoBehaviour
         }
 
         if (playerNum == 1)
-            {
-                if (frames > 4)
+        {
+            if (frames > 4)
                 {
             
                     //moving left?
