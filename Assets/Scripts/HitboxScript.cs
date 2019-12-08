@@ -9,12 +9,13 @@ public class HitboxScript : MonoBehaviour
     BallAction ball;
     PlayerController plrScript;
     bool debounce = false;
+    GameObject Directions;
 
     int frames = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Directions = GameObject.FindGameObjectWithTag("Directions");
     }
 
     // Update is called once per frame
@@ -35,8 +36,8 @@ public class HitboxScript : MonoBehaviour
             Debug.Log("Successfully hit ball");
             ball = c.GetComponent<BallAction>();
             ball.speedMulti += 2f;
-           
             ball.Locked = true;
+            
             StartCoroutine(HitWhatever());
             
         }
