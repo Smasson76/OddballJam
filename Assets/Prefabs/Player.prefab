@@ -107,13 +107,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: {fileID: 0}
   PlayerOBJ: {fileID: 2410840198714130738}
-  blahKey: 32
   dir: {fileID: 0}
   points:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   AWDpoints: {fileID: 0}
+  attacking: 0
   playerNum: 0
   Movement:
   - Horizontal
@@ -121,7 +121,6 @@ MonoBehaviour:
   Movement2:
   - Vertical
   - Vertical2
-  hit: 660000001b010000
 --- !u!1 &4290633816275069184
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,5 +163,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.298959, y: 1, z: 1.4556642}
-  m_Center: {x: 0, y: 0, z: 1.2228949}
+  m_Size: {x: 1.298959, y: 1, z: 2.0203362}
+  m_Center: {x: 0, y: 0, z: 1.5052309}
