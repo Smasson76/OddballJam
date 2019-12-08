@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
 
+    public GameObject hitbox;
     public GameObject PlayerOBJ;
     public KeyCode blahKey = KeyCode.Space;
+    public GameObject dir;
 
     public Transform[] points;
     int currentPoint = 0;
     public GameObject AWDpoints;
     int frames = 0;
+    int attackCooldown;
     bool r, l = false;
 
     public int playerNum = 0;
     public string[] Movement = new string[] { "Horizontal", "Horizontal2" };
+    public string[] Movement2 = new string[] { "Vertical", "Vertical2" };
     //public KeyCode[] hit = new KeyCode[] { KeyCode.Joystick1Button0, KeyCode.Joystick2Button0 };
     public KeyCode[] hit = new KeyCode[] { KeyCode.F, KeyCode.F2 };
     public static Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
@@ -29,11 +32,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        frames += 1; 
-        float axis = Input.GetAxis(Movement[playerNum]);
-       
+        frames += 1;
+        attackCooldown += 1;
+        float axisX = Input.GetAxis(Movement[playerNum]);
+        float axisY = Input.GetAxis(Movement[playerNum]);
+        var hitbox = PlayerOBJ.transform.GetChild(0).GetComponent<BoxCollider>();
+
         //key pressed status reset if left and right arent being pressed
-        if (Mathf.Abs(axis) < 1f)
+        if (Mathf.Abs(axisX) < 1f)
         {
             r = false;
             l = false;
@@ -45,7 +51,7 @@ public class PlayerController : MonoBehaviour
                 {
             
                     //moving left?
-                    if (axis == -1f && transform.position != points[2].transform.position && l == false)
+                    if (axisX == -1f && transform.position != points[2].transform.position && l == false)
                     {
                         l = true;
                         currentPoint++;
@@ -55,7 +61,7 @@ public class PlayerController : MonoBehaviour
                     }
 
                     //moving right?
-                    if (axis == 1f && transform.position != points[0].transform.position && r == false)
+                    if (axisX == 1f && transform.position != points[0].transform.position && r == false)
                     {
                         r = true;
                         currentPoint += points.Length - 1;
@@ -64,15 +70,15 @@ public class PlayerController : MonoBehaviour
                         frames = 0;
                     }
 
-                }
-            }
+             }
+        }
 
         else if (playerNum == 0)
         {
             if (frames > 4)
             {
                 //moving left?
-                if (axis == 1f && transform.position != points[2].transform.position && l == false)
+                if (axisX == 1f && transform.position != points[2].transform.position && l == false)
                 {
                     l = true;
                     currentPoint++;
@@ -82,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //moving right?
-                if (axis == -1f && transform.position != points[0].transform.position && r == false)
+                if (axisX == -1f && transform.position != points[0].transform.position && r == false)
                 {
                     r = true;
                     currentPoint += points.Length - 1;
@@ -91,40 +97,44 @@ public class PlayerController : MonoBehaviour
                     frames = 0;
                 }
             }
+
+            if(axisX == -1f)
+            {
+                Debug.Log("left");
+                GameObject P2field = GameObject.Find("Player2Bounds");
+
+            }
         }
 
         if (playerNum == 0)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2) && attackCooldown > 15)
             {
+                attackCooldown = 0;
                 Debug.Log("Attaque by p1");
-                AWDpoints.SetActive(true);
+                hitbox.enabled = true;
             }
         }
         if (playerNum == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick2Button2))
+            if (Input.GetKeyDown(KeyCode.Joystick2Button2) && attackCooldown > 15)
             {
+                attackCooldown = 0;
                 Debug.Log("Attaque by p2");
-                AWDpoints.SetActive(true);
+                hitbox.enabled = true;
             }
         }
+        if(attackCooldown == 15)
+        {
+            hitbox.enabled = false;
+        }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            //Code goes here
-            AWDpoints.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            //Code goes here
-            AWDpoints.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            //Code goes here
-            AWDpoints.SetActive(false);
-        }
+        
+
+
+
     }
+
+    
 }
 
