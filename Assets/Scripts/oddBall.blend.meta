@@ -65,6 +65,23 @@ ModelImporter:
     100118: ThumbTipRight
     100120: ToesLeft
     100122: ToesRight
+    100124: Camera
+    100126: IndexTipLeft_end
+    100128: IndexTipRight_end
+    100130: Jaw_end
+    100132: Lamp
+    100134: Lamp.001
+    100136: Lamp.002
+    100138: MiddleTipLeft_end
+    100140: MiddleTipRight_end
+    100142: PinkyTipLeft_end
+    100144: PinkyTipRight_end
+    100146: RingTipLeft_end
+    100148: RingTipRight_end
+    100150: ThumbTipLeft_end
+    100152: ThumbTipRight_end
+    100154: ToesLeft_end
+    100156: ToesRight_end
     400000: AnkleLeft
     400002: AnkleRight
     400004: Armature
@@ -127,8 +144,28 @@ ModelImporter:
     400118: ThumbTipRight
     400120: ToesLeft
     400122: ToesRight
+    400124: Camera
+    400126: IndexTipLeft_end
+    400128: IndexTipRight_end
+    400130: Jaw_end
+    400132: Lamp
+    400134: Lamp.001
+    400136: Lamp.002
+    400138: MiddleTipLeft_end
+    400140: MiddleTipRight_end
+    400142: PinkyTipLeft_end
+    400144: PinkyTipRight_end
+    400146: RingTipLeft_end
+    400148: RingTipRight_end
+    400150: ThumbTipLeft_end
+    400152: ThumbTipRight_end
+    400154: ToesLeft_end
+    400156: ToesRight_end
+    2000000: Camera
     2100000: Material__oddBall
     2100002: None__oddBall
+    2100004: Material
+    2100006: No Name
     4300000: Body
     4300002: EyeLeft
     4300004: EyeRight
@@ -136,6 +173,9 @@ ModelImporter:
     4300008: Lenses
     7400000: Default Take
     9500000: //RootNode
+    10800000: Lamp
+    10800002: Lamp.001
+    10800004: Lamp.002
     13700000: Body
     13700002: EyeLeft
     13700004: EyeRight
