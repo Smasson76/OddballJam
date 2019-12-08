@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         gameStarted = false;
         gameOver = false;
         GameOverScreen.SetActive(false);
+        AudioManager.Play("Main Music");
     }
 
     void FixedUpdate()

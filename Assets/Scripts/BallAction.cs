@@ -19,7 +19,7 @@ public class BallAction: MonoBehaviour
         {
             locked = value;
             GameObject explosion = Instantiate(explosion_mesh, transform.position, Quaternion.identity);
-
+            AudioManager.Play("BallHit");
         }
     }
     
