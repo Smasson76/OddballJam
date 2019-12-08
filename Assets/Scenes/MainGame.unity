@@ -2579,6 +2579,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142221, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142221, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142221, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 965543971032142222, guid: b070faa78f6f11d4db9bf11c5f8ae285,
         type: 3}
       propertyPath: target
@@ -2605,16 +2620,31 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142218, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142218, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 965543971032142218, guid: b070faa78f6f11d4db9bf11c5f8ae285,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 965543971032142220, guid: b070faa78f6f11d4db9bf11c5f8ae285,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: c93aeddbb5a650f40b9691aa24f498a3, type: 3}
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 965543971032142219, guid: b070faa78f6f11d4db9bf11c5f8ae285,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5ed461578d04cd14096b869bf847a23f, type: 2}
+      objectReference: {fileID: 2100000, guid: 7191c59b977bdee42b0c7b9f3c2f8d02, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b070faa78f6f11d4db9bf11c5f8ae285, type: 3}
 --- !u!1 &972537032
