@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     int frames = 0;
     int attackCooldown;
     bool r, l = false;
+    public bool attacking = false;
 
     public int playerNum = 0;
     public string[] Movement = new string[] { "Horizontal", "Horizontal2" };
@@ -62,38 +63,59 @@ public class PlayerController : MonoBehaviour {
 
         if (frames > 4)
         {
-            //moving left?
-            if (axisX <= -.5f && (transform.position - points[2].transform.position).sqrMagnitude > 0.01f && !l)
+            if (!attacking)
             {
-                l = true;
-                currentPoint++;
-                currentPoint %= points.Length;
-                PlayerOBJ.transform.position = points[currentPoint].transform.position;
-                frames = 0;
-            }
+                //moving left?
+                if (axisX <= -.5f && (transform.position - points[2].transform.position).sqrMagnitude > 0.01f && !l)
+                {
+                    l = true;
+                    currentPoint++;
+                    currentPoint %= points.Length;
+                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                    frames = 0;
+                }
 
-            //moving right?
-            else if (axisX >= .5f && (transform.position - points[0].transform.position).sqrMagnitude > 0.01f && !r)
-            {
-                r = true;
-                currentPoint += points.Length - 1;
-                currentPoint %= points.Length;
-                PlayerOBJ.transform.position = points[currentPoint].transform.position;
-                frames = 0;
+                //moving right?
+                else if (axisX >= .5f && (transform.position - points[0].transform.position).sqrMagnitude > 0.01f && !r)
+                {
+                    r = true;
+                    currentPoint += points.Length - 1;
+                    currentPoint %= points.Length;
+                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                    frames = 0;
+                }
             }
         }
 
-        if (axisX < -.5f)
-        {            
-            dir = playerField.transform.Find("Bound3").gameObject;
-        }
-        if (axisX > .5f)
-        {                
-            dir = playerField.transform.Find("Bound1").gameObject;
-        }
-        if (axisY < -.5f || axisY > .5f)
+        if (playerNum == 1)
         {
-            dir = playerField.transform.Find("Bound2").gameObject;
+            if (axisX < -.5f)
+            {
+                dir = playerField.transform.Find("Bound1").gameObject;
+            }
+            if (axisX > .5f)
+            {
+                dir = playerField.transform.Find("Bound3").gameObject;
+            }
+            if (axisY < -.5f || axisY > .5f)
+            {
+                dir = playerField.transform.Find("Bound2").gameObject;
+            }
+        }
+        if (playerNum == 0)
+        {
+            if (axisX < -.5f)
+            {
+                dir = playerField.transform.Find("Bound3").gameObject;
+            }
+            if (axisX > .5f)
+            {
+                dir = playerField.transform.Find("Bound1").gameObject;
+            }
+            if (axisY < -.5f || axisY > .5f)
+            {
+                dir = playerField.transform.Find("Bound2").gameObject;
+            }
         }
 
         if (Input.GetButtonDown(playerKey) && attackCooldown > 15)

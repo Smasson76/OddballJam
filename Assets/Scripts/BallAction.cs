@@ -58,7 +58,7 @@ public class BallAction: MonoBehaviour
     public void Reset()
     {
         transform.position = new Vector3(0, 0, 0);
-        target = null;
+        target = gameObject;
         speedMulti = 5.0f;
     }
 }

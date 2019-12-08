@@ -30,21 +30,25 @@ public class HitboxScript : MonoBehaviour
         {
             frames = 0;
             debounce = true;
+            plrScript = Player.GetComponent<PlayerController>();
+            plrScript.attacking = true;
             Debug.Log("Successfully hit ball");
             ball = c.GetComponent<BallAction>();
-            ball.speedMulti += 0.5f;
-            plrScript = Player.GetComponent<PlayerController>();
+            ball.speedMulti += 2f;
+           
             ball.Locked = true;
-            // StartCoroutine(HitWhatever(ball.speedMulti + 5f));
-            ball.target = plrScript.dir;
-            Debug.Log("Waited and reset");
-            debounce = false;
-            ball.Locked = false;
+            StartCoroutine(HitWhatever());
+            
         }
     }
 
-    IEnumerator HitWhatever(float x)
+    IEnumerator HitWhatever()
     {
-        yield return new WaitForSeconds(x);
+        yield return new WaitForSeconds(.5f);
+        ball.target = plrScript.dir;
+        Debug.Log("Waited and reset");
+        debounce = false;
+        ball.Locked = false;
+        plrScript.attacking = false;
     }
 }
