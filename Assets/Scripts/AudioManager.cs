@@ -33,12 +33,14 @@ public class AudioManager : MonoBehaviour
 
         GameObject a = new GameObject();
         mainMusicSource = a.AddComponent<AudioSource>();
+        PlayMainMusic();
     }
 
     public static void PlayMainMusic()
     {
         instance.mainMusicSource.clip = instance.mainMusic;
         instance.mainMusicSource.Play();
+        instance.mainMusicSource.loop = true;
     }
 
     public static void Play(string clipName)

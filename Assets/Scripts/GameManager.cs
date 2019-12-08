@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     bool gameOver = false;
 
     public Text gameEndText;
+    public Text gameEndText2;
     public Text gameScoreText;
     public GameObject Ball;
     public GameObject[] Players = new GameObject[2];
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
 
         
-        if (Ball.transform.position.z < -20)
+        if (Ball.transform.position.z < -19.8)
         {
             ballInGoal = true;
             exitTime = Time.time;
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
             ballLaunched = false;
             FixedUpdate();
         }
-        else if (Ball.transform.position.z > 17.8)
+        else if (Ball.transform.position.z > 17.5)
         {
             Debug.Log("p1 point");
             ballInGoal = true;
@@ -88,6 +89,8 @@ public class GameManager : MonoBehaviour
             gameOver = true;
             gameEndText.enabled = true;
             gameEndText.text = "Player 1 Wins";
+            gameEndText2.enabled = true;
+            gameEndText2.text = "Player 1 Wins";
             gameScoreText.enabled = false;
             GameOverScreen.SetActive(true);
         }
@@ -96,6 +99,8 @@ public class GameManager : MonoBehaviour
             gameOver = true;
             gameEndText.enabled = true;
             gameEndText.text = "Player 2 Wins";
+            gameEndText2.enabled = true;
+            gameEndText2.text = "Player 2 Wins";
             gameScoreText.enabled = false;
             GameOverScreen.SetActive(true);
         }

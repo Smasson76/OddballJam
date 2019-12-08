@@ -29,4 +29,9 @@ public class MainMenuScript : MonoBehaviour {
     public void Back() {
         instructionsScreen.SetActive(false);
     }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
