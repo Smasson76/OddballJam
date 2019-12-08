@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject hitbox;
     public GameObject PlayerOBJ;
-    public KeyCode blahKey = KeyCode.Space;
     public GameObject dir;
 
     public Transform[] points;
@@ -19,122 +18,95 @@ public class PlayerController : MonoBehaviour {
     public int playerNum = 0;
     public string[] Movement = new string[] { "Horizontal", "Horizontal2" };
     public string[] Movement2 = new string[] { "Vertical", "Vertical2" };
-    //public KeyCode[] hit = new KeyCode[] { KeyCode.Joystick1Button0, KeyCode.Joystick2Button0 };
-    public KeyCode[] hit = new KeyCode[] { KeyCode.F, KeyCode.F2 };
+    
     public static Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
 
+    private GameObject playerField;
+    private string playerKey;
     void Awake()
     {
         players[playerNum] = this;
         //currentPoint = points[0];
         AWDpoints.SetActive(false);
+        dir = GameObject.FindGameObjectWithTag("Ball");
+    }
+
+    private void Start()
+    {
+        if (playerNum == 0)
+        {
+            playerKey = "FireP1";
+            playerField = GameObject.Find("Player2Bounds");
+        }
+        else
+        {
+            playerKey = "FireP2";
+            playerField = GameObject.Find("Player1Bounds");
+        }
     }
 
     void Update()
     {
         frames += 1;
         attackCooldown += 1;
-        float axisX = Input.GetAxis(Movement[playerNum]);
-        float axisY = Input.GetAxis(Movement[playerNum]);
+        float axisX = Input.GetAxisRaw(Movement[playerNum]);
+        float axisY = Input.GetAxisRaw(Movement2[playerNum]);
         var hitbox = PlayerOBJ.transform.GetChild(0).GetComponent<BoxCollider>();
 
         //key pressed status reset if left and right arent being pressed
-        if (Mathf.Abs(axisX) < 1f)
+        if (Mathf.Abs(axisX) < .5f)
         {
             r = false;
             l = false;
         }
 
-        if (playerNum == 1)
+        if (frames > 4)
         {
-            if (frames > 4)
-                {
-            
-                    //moving left?
-                    if (axisX == -1f && transform.position != points[2].transform.position && l == false)
-                    {
-                        l = true;
-                        currentPoint++;
-                        currentPoint %= points.Length;
-                        PlayerOBJ.transform.position = points[currentPoint].transform.position;
-                        frames = 0;
-                    }
-
-                    //moving right?
-                    if (axisX == 1f && transform.position != points[0].transform.position && r == false)
-                    {
-                        r = true;
-                        currentPoint += points.Length - 1;
-                        currentPoint %= points.Length;
-                        PlayerOBJ.transform.position = points[currentPoint].transform.position;
-                        frames = 0;
-                    }
-
-             }
-        }
-
-        else if (playerNum == 0)
-        {
-            if (frames > 4)
+            //moving left?
+            if (axisX <= -.5f && (transform.position - points[2].transform.position).sqrMagnitude > 0.01f && !l)
             {
-                //moving left?
-                if (axisX == 1f && transform.position != points[2].transform.position && l == false)
-                {
-                    l = true;
-                    currentPoint++;
-                    currentPoint %= points.Length;
-                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
-                    frames = 0;
-                }
-
-                //moving right?
-                if (axisX == -1f && transform.position != points[0].transform.position && r == false)
-                {
-                    r = true;
-                    currentPoint += points.Length - 1;
-                    currentPoint %= points.Length;
-                    PlayerOBJ.transform.position = points[currentPoint].transform.position;
-                    frames = 0;
-                }
+                l = true;
+                currentPoint++;
+                currentPoint %= points.Length;
+                PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                frames = 0;
             }
 
-            if(axisX == -1f)
+            //moving right?
+            else if (axisX >= .5f && (transform.position - points[0].transform.position).sqrMagnitude > 0.01f && !r)
             {
-                Debug.Log("left");
-                GameObject P2field = GameObject.Find("Player2Bounds");
-
+                r = true;
+                currentPoint += points.Length - 1;
+                currentPoint %= points.Length;
+                PlayerOBJ.transform.position = points[currentPoint].transform.position;
+                frames = 0;
             }
         }
 
-        if (playerNum == 0)
-        {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button2) && attackCooldown > 15)
-            {
-                attackCooldown = 0;
-                Debug.Log("Attaque by p1");
-                hitbox.enabled = true;
-            }
+        if (axisX < -.5f)
+        {            
+            dir = playerField.transform.Find("Bound3").gameObject;
         }
-        if (playerNum == 1)
-        {
-            if (Input.GetKeyDown(KeyCode.Joystick2Button2) && attackCooldown > 15)
-            {
-                attackCooldown = 0;
-                Debug.Log("Attaque by p2");
-                hitbox.enabled = true;
-            }
+        if (axisX > .5f)
+        {                
+            dir = playerField.transform.Find("Bound1").gameObject;
         }
+        if (axisY < -.5f || axisY > .5f)
+        {
+            dir = playerField.transform.Find("Bound2").gameObject;
+        }
+
+        if (Input.GetButtonDown(playerKey) && attackCooldown > 15)
+        {
+            attackCooldown = 0;
+               
+            hitbox.enabled = true;
+        }
+
         if(attackCooldown == 15)
         {
             hitbox.enabled = false;
         }
-
-        
-
-
-
     }
-
-    
 }
 

@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         
         if (!ballLaunched)
         {
-            if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Joystick2Button2))
+            if (Input.GetButtonDown("FireP1") || Input.GetButtonDown("FireP2"))
             {
                 ballLaunched = true;
                 ball = Ball.GetComponent<BallAction>();
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             ballInGoal = true;
             exitTime = Time.time;
             scoreP2++;
-            //BallAction.Reset();
+            ball.Reset();
             ballLaunched = false;
             FixedUpdate();
         }
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             exitTime = Time.time;
             scoreP1++;
             P1scored = true;
-            //BallAction.Reset();
+            ball.Reset();
             ballLaunched = false;
             FixedUpdate();
         }
