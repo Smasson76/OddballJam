@@ -10,6 +10,8 @@ public class BallAction: MonoBehaviour
     public GameObject explosion_mesh;
     Vector3 temp = new Vector3(0, 0, 0);
 
+    
+
     public bool Locked
     {
         get { return locked; }
@@ -30,7 +32,8 @@ public class BallAction: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speedMulti = 5.0f;
+        target = this.gameObject;
+        speedMulti = 10.0f;
         
         
         
@@ -55,7 +58,7 @@ public class BallAction: MonoBehaviour
     public void Reset()
     {
         transform.position = new Vector3(0, 0, 0);
-        target = null;
+        target = gameObject;
         speedMulti = 5.0f;
     }
 }
