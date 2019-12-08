@@ -13,11 +13,14 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     public Text gameEndText;
     public Text gameScoreText;
+    public GameObject Ball;
+    public GameObject[] Players = new GameObject[2];
 
     int scoreP1;
     int scoreP2;
     int roundScoreP1;
     int roundScoreP2;
+    int randy;
 
     public int winScore = 3;
     bool P1scored = false;
@@ -29,8 +32,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        ball = FindObjectOfType<BallAction>();
-        player = FindObjectOfType<PlayerController>();
+        
+        
         ballLaunched = false;
         gameStarted = false;
         gameOver = false;
@@ -38,20 +41,25 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        randy = Random.Range(0, 2);
+        
         if (!ballLaunched)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.Joystick2Button2))
             {
                 ballLaunched = true;
+                ball = Ball.GetComponent<BallAction>();
+                Debug.Log("started");
+                ball.speedMulti = 4f;
+                ball.target = Players[randy];
+                ball.Locked = false;
             }
-            else
-            {
-                Vector3 currentPlayerPos = player.transform.position;
-                //BallAction.Reset();
-            }
+           
         }
+        
 
-        Vector3 ballPos = cam.WorldToViewportPoint(ball.transform.position);
+
+        Vector3 ballPos = cam.WorldToViewportPoint(Ball.transform.position);
         if (ballPos.x < 0)
         {
             ballInGoal = true;

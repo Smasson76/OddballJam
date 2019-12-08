@@ -107,3 +107,4 @@ MonoBehaviour:
   speedMulti: 0
   locked: 0
   target: {fileID: 0}
+  explosion_mesh: {fileID: 0}

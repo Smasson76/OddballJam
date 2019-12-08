@@ -31,7 +31,8 @@ public class BallAction: MonoBehaviour
     void Start()
     {
         speedMulti = 5.0f;
-        locked = true;
+        
+        
         
         
     }
