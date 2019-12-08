@@ -88,12 +88,14 @@ public class GameManager : MonoBehaviour
             gameOver = true;
             gameEndText.enabled = true;
             gameEndText.text = "Player 1 Wins";
+            gameScoreText.enabled = false;
         }
         else if (scoreP2 == winScore)
         {
             gameOver = true;
             gameEndText.enabled = true;
             gameEndText.text = "Player 2 Wins";
+            gameScoreText.enabled = false;
         }
     }
 }
