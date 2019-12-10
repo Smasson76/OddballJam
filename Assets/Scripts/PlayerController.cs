@@ -7,23 +7,21 @@ public class PlayerController : MonoBehaviour {
     public GameObject hitbox;
     public GameObject PlayerOBJ;
     public GameObject dir;
-
-    public Transform[] points;
-    int currentPoint = 0;
     public GameObject AWDpoints;
-    int frames = 0;
-    int attackCooldown;
-    bool r, l = false;
     public bool attacking = false;
-
     public int playerNum = 0;
     public string[] Movement = new string[] { "Horizontal", "Horizontal2" };
     public string[] Movement2 = new string[] { "Vertical", "Vertical2" };
-    
     public static Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
+    public Transform[] points;
 
+    int currentPoint = 0;
+    int frames = 0;
+    int attackCooldown;
+    bool r, l = false;
     private GameObject playerField;
     private string playerKey;
+
     void Awake()
     {
         players[playerNum] = this;
@@ -118,7 +116,7 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown(playerKey) && attackCooldown > 15)
+        if (Input.GetButtonDown(playerKey) && attackCooldown > 15 && !attacking)
         {
             attackCooldown = 0;
                
