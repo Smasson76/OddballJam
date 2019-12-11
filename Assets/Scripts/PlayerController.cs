@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    
     public GameObject PlayerOBJ;
     public GameObject dir;
     public GameObject AWDpoints;
@@ -56,7 +55,6 @@ public class PlayerController : MonoBehaviour {
         float axisX = Input.GetAxisRaw(Movement[playerNum]);
         float axisY = Input.GetAxisRaw(Movement2[playerNum]);
         
-
         //key pressed status reset if left and right arent being pressed
         if (Mathf.Abs(axisX) < .5f)
         {
