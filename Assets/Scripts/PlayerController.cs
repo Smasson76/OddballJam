@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public GameObject hitbox;
+    
     public GameObject PlayerOBJ;
     public GameObject dir;
     public GameObject AWDpoints;
@@ -21,12 +21,17 @@ public class PlayerController : MonoBehaviour {
     bool r, l = false;
     private GameObject playerField;
     private string playerKey;
+    private BoxCollider hitbox;
+    private GameObject hitboxindicator;
 
     void Awake()
     {
+        hitbox = PlayerOBJ.transform.GetChild(0).GetComponent<BoxCollider>();
+        hitboxindicator = gameObject.transform.Find("HitboxIndicator").gameObject;
         players[playerNum] = this;
-        //currentPoint = points[0];
         AWDpoints.SetActive(false);
+        hitbox.enabled = false;
+        hitboxindicator.SetActive(false);
         dir = GameObject.FindGameObjectWithTag("Ball");
     }
 
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour {
         attackCooldown += 1;
         float axisX = Input.GetAxisRaw(Movement[playerNum]);
         float axisY = Input.GetAxisRaw(Movement2[playerNum]);
-        var hitbox = PlayerOBJ.transform.GetChild(0).GetComponent<BoxCollider>();
+        
 
         //key pressed status reset if left and right arent being pressed
         if (Mathf.Abs(axisX) < .5f)
@@ -119,13 +124,16 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown(playerKey) && attackCooldown > 15 && !attacking)
         {
             attackCooldown = 0;
-               
+            
             hitbox.enabled = true;
+            hitboxindicator.SetActive(true);
+
         }
 
         if(attackCooldown == 15)
         {
             hitbox.enabled = false;
+            hitboxindicator.SetActive(false);
         }
     }
 }
