@@ -5446,7 +5446,7 @@ PrefabInstance:
     - target: {fileID: 712944511323283850, guid: 4e7b2888c2bb1ef49b3b6a399c825496,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 712944511323283894, guid: 4e7b2888c2bb1ef49b3b6a399c825496,
         type: 3}
@@ -5592,6 +5592,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8426156356771900160, guid: a455bdfd69358f04a87cd79e941d6e2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8426156356771900220, guid: a455bdfd69358f04a87cd79e941d6e2a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5671,4 +5676,5 @@ MonoBehaviour:
   - {fileID: 1177667030}
   - {fileID: 911943626}
   - {fileID: 577926841}
+  dir: {fileID: 0}
   state: 0
