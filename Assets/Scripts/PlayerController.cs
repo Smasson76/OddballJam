@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public GameObject hitbox;
+    
     public GameObject PlayerOBJ;
     public GameObject dir;
-
-    public Transform[] points;
-    int currentPoint = 0;
     public GameObject AWDpoints;
-    int frames = 0;
-    int attackCooldown;
-    bool r, l = false;
     public bool attacking = false;
-
     public int playerNum = 0;
     public string[] Movement = new string[] { "Horizontal", "Horizontal2" };
     public string[] Movement2 = new string[] { "Vertical", "Vertical2" };
-    
     public static Dictionary<int, PlayerController> players = new Dictionary<int, PlayerController>();
+    public Transform[] points;
 
+    int currentPoint = 0;
+    int frames = 0;
+    int attackCooldown;
+    bool r, l = false;
     private GameObject playerField;
     private string playerKey;
+    private BoxCollider hitbox;
+    private GameObject hitboxindicator;
+
     void Awake()
     {
+        hitbox = PlayerOBJ.transform.GetChild(0).GetComponent<BoxCollider>();
+        hitboxindicator = gameObject.transform.Find("HitboxIndicator").gameObject;
         players[playerNum] = this;
-        //currentPoint = points[0];
         AWDpoints.SetActive(false);
+        hitbox.enabled = false;
+        hitboxindicator.SetActive(false);
         dir = GameObject.FindGameObjectWithTag("Ball");
     }
 
@@ -52,7 +55,7 @@ public class PlayerController : MonoBehaviour {
         attackCooldown += 1;
         float axisX = Input.GetAxisRaw(Movement[playerNum]);
         float axisY = Input.GetAxisRaw(Movement2[playerNum]);
-        var hitbox = PlayerOBJ.transform.GetChild(0).GetComponent<BoxCollider>();
+        
 
         //key pressed status reset if left and right arent being pressed
         if (Mathf.Abs(axisX) < .5f)
@@ -118,16 +121,19 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown(playerKey) && attackCooldown > 15)
+        if (Input.GetButtonDown(playerKey) && attackCooldown > 15 && !attacking)
         {
             attackCooldown = 0;
-               
+            
             hitbox.enabled = true;
+            hitboxindicator.SetActive(true);
+
         }
 
         if(attackCooldown == 15)
         {
             hitbox.enabled = false;
+            hitboxindicator.SetActive(false);
         }
     }
 }

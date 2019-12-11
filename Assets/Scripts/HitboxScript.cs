@@ -34,6 +34,7 @@ public class HitboxScript : MonoBehaviour
         
     }
 
+    //when plr hitbox collides with object with tag "Ball"
     void OnTriggerEnter(Collider c)
     {
         if (c.gameObject.tag == "Ball" && debounce == false)
@@ -47,17 +48,18 @@ public class HitboxScript : MonoBehaviour
             ball.speedMulti += 2f;
             ball.Locked = true;
             Directions.active = !Directions.active;
-            StartCoroutine(HitWhatever());
+            StartCoroutine(OffHit());
             
         }
     }
 
-    IEnumerator HitWhatever()
+    //After hit over
+    IEnumerator OffHit()
     {
-        yield return new WaitForSeconds(.5f);
+        float WaitTime = .5f + (ball.speedMulti * 0.01f);
+        yield return new WaitForSeconds(WaitTime);
         ball.target = plrScript.dir;
         Directions.active = !Directions.active;
-        Debug.Log("Waited and reset");
         debounce = false;
         ball.Locked = false;
         plrScript.attacking = false;
