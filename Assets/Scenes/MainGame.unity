@@ -2644,7 +2644,7 @@ MonoBehaviour:
   Ball: {fileID: 418231863}
   Players:
   - {fileID: 1221336285}
-  - {fileID: 0}
+  - {fileID: 1628535294}
   GameOverScreen: {fileID: 2140163570}
   winScore: 3
   cam: {fileID: 534669904}
@@ -2959,7 +2959,7 @@ PrefabInstance:
     - target: {fileID: 5669072182243126939, guid: 177fbf333d731b248a0901464d8681bc,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 5669072182243126939, guid: 177fbf333d731b248a0901464d8681bc,
         type: 3}
@@ -3051,6 +3051,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 707041e79c2a8b546a8b9878ecdc6cde, type: 2}
+    - target: {fileID: 5669072183044276801, guid: 177fbf333d731b248a0901464d8681bc,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.4957414
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669072183044276801, guid: 177fbf333d731b248a0901464d8681bc,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.00966183
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 177fbf333d731b248a0901464d8681bc, type: 3}
 --- !u!1 &1116555672
@@ -4644,6 +4654,12 @@ Transform:
   m_Father: {fileID: 452733489}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1628535294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5669072182243126939, guid: 177fbf333d731b248a0901464d8681bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1062855340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1678074303
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,6 +5611,16 @@ PrefabInstance:
     - target: {fileID: 32797913, guid: 177fbf333d731b248a0901464d8681bc, type: 3}
       propertyPath: m_LocalScale.y
       value: 3.3303702
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669072183044276801, guid: 177fbf333d731b248a0901464d8681bc,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.5256193
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669072183044276801, guid: 177fbf333d731b248a0901464d8681bc,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.018434698
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 177fbf333d731b248a0901464d8681bc, type: 3}
