@@ -6,9 +6,11 @@ public class HitboxScript : MonoBehaviour
 {
     public GameObject Player;
     public GameObject TimerUI;
+    public GameObject HitEffect;
 
     BallAction ball;
     PlayerController plrScript;
+    Transform BallTransform;
     bool debounce = false;
     GameObject Directions;
     int frames = 0;
@@ -40,12 +42,18 @@ public class HitboxScript : MonoBehaviour
             frames = 0;
             debounce = true;
             plrScript.attacking = true;
-            Debug.Log("Successfully hit ball");
+
             ball = c.GetComponent<BallAction>();
+            BallTransform = ball.gameObject.transform;
+
+            GameObject explosion = Instantiate(HitEffect, BallTransform.position, Quaternion.identity);
+            explosion.transform.parent = BallTransform;
+            GameObject.Destroy(explosion, 1);
+
             ball.speedMulti += 2f;
             ball.Locked = true;
             Directions.SetActive(true);
-            TimerUI.transform.position = ball.gameObject.transform.position;
+            TimerUI.transform.position = BallTransform.position;
             StartCoroutine(OffHit());
         }
     }

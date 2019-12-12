@@ -17,9 +17,8 @@ public class BallAction: MonoBehaviour
         get { return locked; }
         set
         {
-            locked = value;
-            GameObject explosion = Instantiate(explosion_mesh, transform.position, Quaternion.identity);
             AudioManager.Play("BallHit");
+            locked = value;
         }
     }
     
