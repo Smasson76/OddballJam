@@ -44,14 +44,13 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         randy = Random.Range(0, 2);
-        gameScoreText.text = ("Red: " + scoreP2 + " || " + "Blue: " + scoreP1);
+        gameScoreText.text = ("Red: " + scoreP2 + " \n" + "Blue: " + scoreP1);
         if (!ballLaunched)
         {
             if (Input.GetButtonDown("FireP1") || Input.GetButtonDown("FireP2"))
             {
                 ballLaunched = true;
                 ball = Ball.GetComponent<BallAction>();
-                Debug.Log("started");
                 ball.speedMulti = 15f;
                 ball.target = Players[randy];
                 ball.Locked = false;
