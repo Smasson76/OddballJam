@@ -60,7 +60,6 @@ public class HitboxScript : MonoBehaviour
     //After hit over
     IEnumerator OffHit()
     {
-        Debug.Log("hai");
         float WaitTime = .5f + (ball.speedMulti * 0.01f);
         TimerUI.GetComponent<TimerUIScript>().TimeStat = WaitTime;
         TimerUI.SetActive(true);
