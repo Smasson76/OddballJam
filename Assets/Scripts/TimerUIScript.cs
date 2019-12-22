@@ -35,7 +35,7 @@ public class TimerUIScript : MonoBehaviour
             timerOver = true;
             gameObject.transform.Find("Ring").GetComponent<Image>().fillAmount = 0;
             current = 0;
-            gameObject.SetActive(false);
+            Destroy(this);
         }
     }
 }

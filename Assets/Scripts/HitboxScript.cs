@@ -11,6 +11,7 @@ public class HitboxScript : MonoBehaviour
     BallAction ball;
     PlayerController plrScript;
     Transform BallTransform;
+    TimerUIScript TScript;
     bool debounce = false;
     GameObject Directions;
     int frames = 0;
@@ -60,12 +61,12 @@ public class HitboxScript : MonoBehaviour
     //After hit over
     IEnumerator OffHit()
     {
-        Debug.Log("hai");
+        TScript = BallTransform.gameObject.UICanvas.gameObject.TimeDisplay.gameObject.AddComponent<TimerUIScript>();
+        TScript.Ball = BallTransform.gameObject;
         float WaitTime = .5f + (ball.speedMulti * 0.01f);
-        TimerUI.GetComponent<TimerUIScript>().TimeStat = WaitTime;
-        TimerUI.SetActive(true);
+        TScript.TimeStat = WaitTime;
         yield return new WaitForSeconds(WaitTime);
-        TimerUI.GetComponent<TimerUIScript>().timerOver = false;
+        TScript.timerOver = false;
         ball.target = plrScript.dir;
         Directions.SetActive(false);
         debounce = false;
