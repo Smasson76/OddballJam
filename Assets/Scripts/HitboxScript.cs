@@ -61,11 +61,8 @@ public class HitboxScript : MonoBehaviour
     //After hit over
     IEnumerator OffHit()
     {
-<<<<<<< HEAD
-        TScript = BallTransform.gameObject.UICanvas.gameObject.TimeDisplay.gameObject.AddComponent<TimerUIScript>();
+        TScript = GameObject.FindWithTag("Timer").AddComponent<TimerUIScript>();
         TScript.Ball = BallTransform.gameObject;
-=======
->>>>>>> 36dc313e568bfe7699ca950e1df6b8e1286eaff4
         float WaitTime = .5f + (ball.speedMulti * 0.01f);
         TScript.TimeStat = WaitTime;
         yield return new WaitForSeconds(WaitTime);
