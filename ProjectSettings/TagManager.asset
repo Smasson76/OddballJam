@@ -11,6 +11,8 @@ TagManager:
   - Directions
   - AI
   - Fire
+  - Timer
+  - Clouds
   layers:
   - Default
   - TransparentFX
