@@ -6,17 +6,16 @@ public class CloudScript : MonoBehaviour
 {
     public GameObject CloudModel;
     public float cloudSpeed = 1.0f;
-
-    static int maxCloudCount = 5;
-    GameObject[] Clouds = new GameObject[maxCloudCount];
+    public float CloudCount = 10.0f;
+    public List<GameObject> Clouds = new List<GameObject>();
     // Start is called before the first frame update
 
     void Start()
     {
-        for (int i = 0; i < maxCloudCount; i++)
+        for (int i = 0; i < CloudCount; i++)
         {
-            Clouds[i] = Instantiate(CloudModel, this.transform);
-            Clouds[i].transform.position = new Vector3(200, -90, 90-(18*(maxCloudCount-i)*2));
+            Clouds.Add(Instantiate(CloudModel, this.transform));
+            Clouds[i].transform.position = new Vector3(200, -90, -90+((float)((2 / CloudCount)*100) * i));
         }
         
     }
